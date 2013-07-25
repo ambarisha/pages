@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_body %}
+
+{% if pages %}
+	<h3>Pages</h3>
+	<ul>
+	{% for page in pages %}
+		<li><a href="{{page.url}}">{{page.title}}</a></li>
+	{% endfor %}
+	</ul>
+{% endif %}
+
+{% for category in categories %}
+	<h3>{{category[0]}}</h3>
+	<ul>
+	{% for article in category[1] %}
+		<li><a href="{{article.url}}">{{article.title}}</a></li>	
+	{% endfor %}
+	</ul>
+{% endfor %}
+
+{% endblock page_body %}
